@@ -2,6 +2,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown");
+const { type } = require("os");
 
 
 // TODO: Create an array of questions for user input
@@ -12,7 +13,58 @@ const questions = [
     },
     {
         name: "description",
-        message: "What is your project description?"
+        message: "What is your project description?",
+        type: "editor"
+    },
+    {
+        name: "installation",
+        message: "What is your project installation?",
+        type: "editor"
+    },
+    {
+        name: "usage",
+        message: "What is your project usage description?",
+        type: "editor"
+    },
+    {
+        name: "contribution",
+        message: "What is your project contribution section",
+        type: "editor"
+    },
+    {
+        name: "test",
+        message: "What is your project test description?",
+        type: "editor"
+    },
+    {
+        name: "license",
+        message: "What is your project license?",
+        type: "list",
+        choices: [
+            "None",
+            "Apache License 2.0",
+            "GNU General Public License v3.0",
+            "MIT License",
+            "BSD 2-Clause \"Simplified\" License",
+            "BSD 3-Clause \"New\" or \"Revised\" License",
+            "Boost Software License 1.0",
+            "Creative Commons Zero v1.0 Universal",
+            "Eclipse Public License 2.0",
+            "GNU Affero General Public License v3.0",
+            "GNU General Public License v2.0",
+            "GNU Lesser General Public License v2.1",
+            "Mozilla Public License 2.0",
+            "The Unlicense"
+          ],
+
+    },
+    {
+        name: "github",
+        message: "What is your github username?"
+    },
+    {
+        name: "email",
+        message: "What is your email?"
     },
 
 ];
