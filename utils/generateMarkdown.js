@@ -12,7 +12,7 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license !== "None") {
-    return `\n- [License](#license)\n`;
+    return `- [License](#license)`;
   }
   return '';
 }
@@ -23,7 +23,7 @@ function renderLicenseSection(license) {
   if (license !== "None") {
     return `## License
 
-This project is licensed under the ${license} license.`;
+This project is licensed under the ${license}`;
   }
   return '';
 }
@@ -75,13 +75,13 @@ ${usage}
 
 function renderContribution(contribution){
   if (contribution !== "None" && contribution !== "" && contribution !== "N/A") {
-    return `## Contributing
+    return `## Contributions
 
 ${contribution}
 
 `;
   }
-  return `## Contributing
+  return `## Contributions
 
   N/A
 
@@ -114,7 +114,7 @@ Feel free to contact me here: ${email}
 My github: [${github}](https://github.com/${github})
 `;
   } else
-  if (github == "None" && github == "" && github == "N/A" && email !== "None" && email !== "" && email !== "N/A") {
+  if ((github == "None" || github == "" || github == "N/A") && (email !== "None" && email !== "" && email !== "N/A")) {
     return `## Questions
 
 Have any questions?
@@ -125,7 +125,7 @@ My github: N/A
 `;
   }
   else
-  if (github !== "None" && github !== "" && github !== "N/A" && email == "None" && email == "" && email == "N/A") {
+  if ((github !== "None" && github !== "" && github !== "N/A") && (email == "None" || email == "" || email == "N/A")) {
     return `## Questions
 
 Have any questions?
@@ -155,7 +155,7 @@ function generateMarkdown(data) {
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contribution](#contribution)
+- [Contributions](#contributions)
 ${renderLicenseLink(data.license)}
 - [Tests](#tests)
 - [Questions](#questions)
