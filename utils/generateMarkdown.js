@@ -32,24 +32,29 @@ function renderDescription(description) {
   if (description !== "None" && description !== "" && description !== "N/A") {
     return `## Description
 
-${description}`;
+${description}
+
+`;
   }
   return `## Description
 
   N/A
+
   `;
 }
 
-
 function renderInstallation(install) {
   if (install !== "None" && install !== "" && install !== "N/A") {
-    return `## Installation
+    return `\n## Installation
 
-${install}`;
+${install}
+
+`;
   }
-  return `## Installation
+  return `\n## Installation
 
   N/A
+
   `;
 }
 
@@ -57,39 +62,62 @@ function renderUsage(usage){
   if (usage !== "None" && usage !== "" && usage !== "N/A") {
     return `## Usage
 
-${usage}`;
+${usage}
+
+`;
   }
   return `## Usage
 
   N/A
+
   `;
 }
+
 function renderContribution(contribution){
   if (contribution !== "None" && contribution !== "" && contribution !== "N/A") {
     return `## Contributing
 
-${contribution}`;
+${contribution}
+
+`;
   }
   return `## Contributing
 
   N/A
+
   `;
 }
+
 function renderTests(test){
   if (test !== "None" && test !== "" && test !== "N/A") {
     return `## Tests
 
-${test}`;
+${test}
+
+`;
   }
   return `## Tests
 
   N/A
+
   `;
 }
 
-function renderQuestions(email)
-{
+function renderQuestions(github, email){
+  if (github !== "None" && github !== "" && github !== "N/A" && email !== "None" && email !== "" && email !== "N/A") {
+    return `## Questions
 
+Have any questions?
+
+Feel free to contact me here: ${email}
+
+My github: [${github}](https://github.com/${github})
+`;
+  }
+  return `## Questions
+
+  N/A
+  `;
 }
 
 // TODO: Create a function to generate markdown for README
@@ -102,10 +130,11 @@ function generateMarkdown(data) {
 
   ## Table of Contents
 
-- [Installation](##installation)
+- [Installation](#installation)
 - [Usage](#usage)
-- [Credits](#credits)
+- [Contribution](#contribution)
 ${renderLicenseLink(data.license)}
+- [Tests](#tests)
 
   ${renderInstallation(data.installation)}
 
@@ -118,6 +147,8 @@ ${renderLicenseLink(data.license)}
   ${renderLicenseBadge(data.license)}
 
   ${renderTests(data.test)}
+
+  ${renderQuestions(data.github, data.email)}
 `;
 }
 
