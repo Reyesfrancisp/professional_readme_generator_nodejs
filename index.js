@@ -24,7 +24,7 @@ const questions = [
     },
     {
         name: "contribution",
-        message: "What is your project contribution section",
+        message: "What is your project contribution section?",
     },
     {
         name: "test",
@@ -76,7 +76,7 @@ function writeToFile(fileName, data) {
 
 function dataHandling(answers) {
     const writeData = generateMarkdown(answers);
-    writeToFile(answers.title, writeData);
+    writeToFile(answers.title.replace(/\s+/g, '_'), writeData);
 }
 
 // TODO: Create a function to initialize app

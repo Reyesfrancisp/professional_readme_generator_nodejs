@@ -12,7 +12,7 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license !== "None") {
-    return `\n* [License](#license)\n`;
+    return `\n- [License](#license)\n`;
   }
   return '';
 }
@@ -64,13 +64,13 @@ ${usage}`;
   N/A
   `;
 }
-function renderContributiin(contribution){
+function renderContribution(contribution){
   if (contribution !== "None" && contribution !== "" && contribution !== "N/A") {
-    return `## Contribution
+    return `## Contributing
 
-${description}`;
+${contribution}`;
   }
-  return `## Contribution
+  return `## Contributing
 
   N/A
   `;
@@ -87,15 +87,37 @@ ${test}`;
   `;
 }
 
+function renderQuestions(email)
+{
+
+}
+
 // TODO: Create a function to generate markdown for README
 
 //add table of contents in markdown
 function generateMarkdown(data) {
   return `# ${data.title}
-
+  
   ${renderDescription(data.description)}
 
+  ## Table of Contents
+
+- [Installation](##installation)
+- [Usage](#usage)
+- [Credits](#credits)
+${renderLicenseLink(data.license)}
+
+  ${renderInstallation(data.installation)}
+
+  ${renderUsage(data.usage)}
+
+  ${renderContribution(data.contribution)}
+
+  ${renderLicenseSection(data.license)}
+
   ${renderLicenseBadge(data.license)}
+
+  ${renderTests(data.test)}
 `;
 }
 
