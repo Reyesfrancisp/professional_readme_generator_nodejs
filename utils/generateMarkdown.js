@@ -17,10 +17,22 @@ function renderLicenseLink(license) {}
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
 
+function renderDescription (){}
+
+function renderInstallation (){}
+
+function renderUsage (){}
+
+function renderContributing (){}
+
+function renderTests(){}
+
 // TODO: Create a function to generate markdown for README
+
+//add table of contents in markdown
 function generateMarkdown(data) {
   return `# ${data.title}
-  ${renderLicenseBadge(license)}
+  ${renderLicenseBadge(data.license)}
 `;
 }
 
