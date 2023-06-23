@@ -28,7 +28,7 @@ This project is licensed under the ${license} license.`;
   return '';
 }
 
-function renderDescription (description){
+function renderDescription(description) {
   if (description !== "None" && description !== "" && description !== "N/A") {
     return `## Description
 
@@ -41,13 +41,51 @@ ${description}`;
 }
 
 
-function renderInstallation (){}
+function renderInstallation(install) {
+  if (install !== "None" && install !== "" && install !== "N/A") {
+    return `## Installation
 
-function renderUsage (){}
+${install}`;
+  }
+  return `## Installation
 
-function renderContributing (){}
+  N/A
+  `;
+}
 
-function renderTests(){}
+function renderUsage(usage){
+  if (usage !== "None" && usage !== "" && usage !== "N/A") {
+    return `## Usage
+
+${usage}`;
+  }
+  return `## Usage
+
+  N/A
+  `;
+}
+function renderContributiin(contribution){
+  if (contribution !== "None" && contribution !== "" && contribution !== "N/A") {
+    return `## Contribution
+
+${description}`;
+  }
+  return `## Contribution
+
+  N/A
+  `;
+}
+function renderTests(test){
+  if (test !== "None" && test !== "" && test !== "N/A") {
+    return `## Tests
+
+${test}`;
+  }
+  return `## Tests
+
+  N/A
+  `;
+}
 
 // TODO: Create a function to generate markdown for README
 

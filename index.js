@@ -2,7 +2,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown");
-const { type } = require("os");
 
 
 // TODO: Create an array of questions for user input
@@ -14,27 +13,22 @@ const questions = [
     {
         name: "description",
         message: "What is your project description?",
-        type: "editor"
     },
     {
         name: "installation",
         message: "What is your project installation?",
-        type: "editor"
     },
     {
         name: "usage",
         message: "What is your project usage description?",
-        type: "editor"
     },
     {
         name: "contribution",
         message: "What is your project contribution section",
-        type: "editor"
     },
     {
         name: "test",
         message: "What is your project test description?",
-        type: "editor"
     },
     {
         name: "license",
@@ -55,7 +49,7 @@ const questions = [
             "GNU Lesser General Public License v2.1",
             "Mozilla Public License 2.0",
             "The Unlicense"
-          ],
+        ],
 
     },
     {
@@ -74,14 +68,13 @@ function writeToFile(fileName, data) {
 
     fs.writeFile(`./readme_gen/${fileName}.md`, data, (err) => {
         if (err) {
-          console.error("Error:", err);
+            console.error("Error:", err);
         }
-      });
-      
+    });
+
 }
 
-function dataHandling(answers)
-{
+function dataHandling(answers) {
     const writeData = generateMarkdown(answers);
     writeToFile(answers.title, writeData);
 }
@@ -90,8 +83,8 @@ function dataHandling(answers)
 function init() {
     let userPrompt = inquirer.createPromptModule();
     userPrompt(questions)
-    .then(dataHandling)
-    .catch((error) => console.error("Error:", error));
+        .then(dataHandling)
+        .catch((error) => console.error("Error:", error));
 }
 
 // Function call to initialize app
