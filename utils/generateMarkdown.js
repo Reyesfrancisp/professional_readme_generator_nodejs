@@ -113,11 +113,34 @@ Feel free to contact me here: ${email}
 
 My github: [${github}](https://github.com/${github})
 `;
+  } else
+  if (github == "None" && github == "" && github == "N/A" && email !== "None" && email !== "" && email !== "N/A") {
+    return `## Questions
+
+Have any questions?
+
+Feel free to contact me here: ${email}
+
+My github: N/A
+`;
   }
+  else
+  if (github !== "None" && github !== "" && github !== "N/A" && email == "None" && email == "" && email == "N/A") {
+    return `## Questions
+
+Have any questions?
+
+Feel free to contact me here: N/A
+
+My github: [${github}](https://github.com/${github})
+`;
+  }else
+  {
   return `## Questions
 
   N/A
   `;
+}
 }
 
 // TODO: Create a function to generate markdown for README
@@ -135,6 +158,7 @@ function generateMarkdown(data) {
 - [Contribution](#contribution)
 ${renderLicenseLink(data.license)}
 - [Tests](#tests)
+- [Questions](#questions)
 
   ${renderInstallation(data.installation)}
 

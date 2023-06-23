@@ -16,19 +16,19 @@ const questions = [
     },
     {
         name: "installation",
-        message: "What is your project installation?",
+        message: "What is your project installation instructions?",
     },
     {
         name: "usage",
-        message: "What is your project usage description?",
+        message: "What is your project usage information?",
     },
     {
         name: "contribution",
-        message: "What is your project contribution section?",
+        message: "What are your contribution guidelines?",
     },
     {
         name: "test",
-        message: "What is your project test description?",
+        message: "What are your test instructions?",
     },
     {
         name: "license",
